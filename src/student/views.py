@@ -1,4 +1,9 @@
-from django.shortcuts import render
+'''
+    An API view to register a student, update a specific
+    student record, delete a specfic student record, view
+    a particular student record and getting all students records.
+'''
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import StudentsSerializer
@@ -6,7 +11,11 @@ from .serializers import StudentsSerializer
 # A view to register, delete, view and update students details.
 
 
-class studentsView(APIView):
+class StudentsView(APIView):
+
+    '''
+        Student view class
+    '''
 
     def post(self, request):
 

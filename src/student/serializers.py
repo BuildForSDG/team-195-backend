@@ -1,3 +1,10 @@
+'''
+    A model serializer validates data passed by the
+    student and changes complex student model data types
+    to python simple type that is passed direct to the
+    response object in the student view class
+'''
+
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from .models import Students
@@ -77,8 +84,8 @@ class StudentsSerializer(serializers.ModelSerializer):
                     "required": "Please provide educationlevel key",
                     "blank": "Please provide education level value"
                 }
-            }
-        } 
+            },
+        }
 
     def validate(self, data):
         '''
@@ -118,7 +125,7 @@ class StudentsSerializer(serializers.ModelSerializer):
         # Checks it's a valid address
         not_valid_address =\
             ValidateStudentData.check_address_value(
-                data['Address'] 
+                data['Address']
             )
         if not_valid_address:
             raise serializers.ValidationError(
